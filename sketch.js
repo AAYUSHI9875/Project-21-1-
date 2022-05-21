@@ -21,7 +21,7 @@ function setup() {
     // assign properties to ball
 	var ball_options={
 		isStatic:false,
-		restitution:0.3,
+		restitution:0.003,
 		friction:0,
 		density:1.2
 	}
