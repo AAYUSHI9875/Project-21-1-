@@ -4,6 +4,8 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 var ball;
+//var invisibleGround;
+//var invisibleGroundGroup;
 function preload()
 {
 	
@@ -30,6 +32,10 @@ function setup() {
     ball = Bodies.circle(200,100,20,ball_options);
 	World.add(world,ball);
 
+	//invisibleGround = createSprite(1200,670,170,20);
+	//invisibleGround.visible = false;
+	//invisibleGroundGroup = createGroup();
+
 	Engine.run(engine);
   
 }
@@ -42,6 +48,14 @@ function draw() {
   // display ball on canvas using ellips ()
   ellipse(ball.position.x,ball.position.y,20);
 
+  //invisibleGroundGroup.add(invisibleGround);
+  //if(invisibleGroundGroup.isTouching(ball)){
+	//  ball.restitution = 0;
+ //}
+
+ //if(ball.x===1200 && ball.y===670){
+	// ball.restitution = 0;
+// }
   // write function to display the ground objects on canvas
   groundObj.show();
   leftSide.show();
@@ -53,7 +67,7 @@ function draw() {
 // make the ball jump and fall in the bucket when up arrow key is pressed 
 function keypressed() {
 	if (keyCode === UP_ARROW) {
-		Matter.Body.applyForce(ball,{x:0,y:0},{x:0.5,y:-1});
+		Matter.Body.applyForce(ball,{x:0,y:0},{x:0.5,y:-0.1});
 	}
 }
 
